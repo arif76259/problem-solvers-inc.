@@ -47,7 +47,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className={cn("fixed inset-x-0 top-8 z-40 transition-all", scrolled || open ? "bg-surface/90 backdrop-blur-md border-b border-border" : "bg-transparent")}>
+    <header className={cn("fixed inset-x-0 top-8 z-40 transition-all", scrolled || open ? "bg-surface/95 backdrop-blur-md border-b border-border" : "bg-surface/80 backdrop-blur-sm")}>
       <div className="container-site flex h-16 items-center justify-between">
         <Logo />
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
