@@ -292,7 +292,7 @@ export const upsertInsight = createServerFn({ method: "POST" })
   .handler(async ({ context, data }) => {
     await assertStaff(context as Ctx);
     const { id, ...row } = data;
-    const payload = { ...row, published_at: row.is_published ? new Date().toISOString() : null };
+    const payload = JSON.parse(JSON.stringify({ ...row, published_at: row.is_published ? new Date().toISOString() : null })) as TablesInsert<"insights">;
     const { error } = id ? await context.supabase.from("insights").update(payload).eq("id", id) : await context.supabase.from("insights").insert(payload);
     if (error) throw new Error(error.message);
     return { ok: true };
@@ -334,7 +334,8 @@ export const upsertCampaign = createServerFn({ method: "POST" })
   )
   .handler(async ({ context, data }) => {
     await assertStaff(context as Ctx);
-    const { id, ...row } = data;
+    const { id, ...raw } = data;
+    const row = JSON.parse(JSON.stringify(raw)) as TablesInsert<"campaigns">;
     const { error } = id ? await context.supabase.from("campaigns").update(row).eq("id", id) : await context.supabase.from("campaigns").insert(row);
     if (error) throw new Error(error.message);
     return { ok: true };

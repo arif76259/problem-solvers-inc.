@@ -10,12 +10,12 @@ const UTM_KEY = "bs_utm";
 const SESSION_KEY = "bs_sid";
 
 export type Attribution = {
-  utm_source?: string;
-  utm_medium?: string;
-  utm_campaign?: string;
-  referrer?: string;
-  session_id?: string;
-  device?: string;
+  utm_source?: string | undefined;
+  utm_medium?: string | undefined;
+  utm_campaign?: string | undefined;
+  referrer?: string | undefined;
+  session_id?: string | undefined;
+  device?: string | undefined;
 };
 
 function isBrowser() {
