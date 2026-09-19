@@ -11,9 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EarlyCustomersRouteImport } from './routes/early-customers'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as HowWeBuildRouteImport } from './routes/how-we-build'
+import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as UpcomingProductsRouteImport } from './routes/upcoming-products'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 
@@ -27,9 +35,24 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EarlyCustomersRoute = EarlyCustomersRouteImport.update({
   id: '/early-customers',
   path: '/early-customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowWeBuildRoute = HowWeBuildRouteImport.update({
@@ -37,9 +60,34 @@ const HowWeBuildRoute = HowWeBuildRouteImport.update({
   path: '/how-we-build',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UpcomingProductsRoute = UpcomingProductsRouteImport.update({
   id: '/upcoming-products',
   path: '/upcoming-products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/insights/$slug',
+  path: '/insights/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
@@ -56,29 +104,53 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
   '/early-customers': typeof EarlyCustomersRoute
+  '/faq': typeof FaqRoute
   '/how-we-build': typeof HowWeBuildRoute
+  '/partners': typeof PartnersRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/upcoming-products': typeof UpcomingProductsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/insights/': typeof InsightsIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
   '/early-customers': typeof EarlyCustomersRoute
+  '/faq': typeof FaqRoute
   '/how-we-build': typeof HowWeBuildRoute
+  '/partners': typeof PartnersRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/upcoming-products': typeof UpcomingProductsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/insights': typeof InsightsIndexRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/contact': typeof ContactRoute
   '/early-customers': typeof EarlyCustomersRoute
+  '/faq': typeof FaqRoute
   '/how-we-build': typeof HowWeBuildRoute
+  '/partners': typeof PartnersRoute
+  '/privacy': typeof PrivacyRoute
+  '/terms': typeof TermsRoute
   '/upcoming-products': typeof UpcomingProductsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/insights/': typeof InsightsIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -86,38 +158,70 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
+    | '/contact'
     | '/early-customers'
+    | '/faq'
     | '/how-we-build'
+    | '/partners'
+    | '/privacy'
+    | '/terms'
     | '/upcoming-products'
+    | '/insights/$slug'
     | '/products/$slug'
+    | '/insights/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/admin'
+    | '/contact'
     | '/early-customers'
+    | '/faq'
     | '/how-we-build'
+    | '/partners'
+    | '/privacy'
+    | '/terms'
     | '/upcoming-products'
+    | '/insights/$slug'
     | '/products/$slug'
+    | '/insights'
     | '/products'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
+    | '/contact'
     | '/early-customers'
+    | '/faq'
     | '/how-we-build'
+    | '/partners'
+    | '/privacy'
+    | '/terms'
     | '/upcoming-products'
+    | '/insights/$slug'
     | '/products/$slug'
+    | '/insights/'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
+  ContactRoute: typeof ContactRoute
   EarlyCustomersRoute: typeof EarlyCustomersRoute
+  FaqRoute: typeof FaqRoute
   HowWeBuildRoute: typeof HowWeBuildRoute
+  PartnersRoute: typeof PartnersRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   UpcomingProductsRoute: typeof UpcomingProductsRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -137,11 +241,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/early-customers': {
       id: '/early-customers'
       path: '/early-customers'
       fullPath: '/early-customers'
       preLoaderRoute: typeof EarlyCustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-we-build': {
@@ -151,11 +276,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HowWeBuildRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/upcoming-products': {
       id: '/upcoming-products'
       path: '/upcoming-products'
       fullPath: '/upcoming-products'
       preLoaderRoute: typeof UpcomingProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/insights/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/': {
@@ -178,10 +338,18 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
+  ContactRoute: ContactRoute,
   EarlyCustomersRoute: EarlyCustomersRoute,
+  FaqRoute: FaqRoute,
   HowWeBuildRoute: HowWeBuildRoute,
+  PartnersRoute: PartnersRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   UpcomingProductsRoute: UpcomingProductsRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport

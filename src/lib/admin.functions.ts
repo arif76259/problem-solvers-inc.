@@ -203,7 +203,7 @@ export const upsertProduct = createServerFn({ method: "POST" })
   .handler(async ({ context, data }) => {
     await assertStaff(context as Ctx);
     const { id, ...rest } = data;
-    const row = { ...rest, specifications: rest.specifications as never, faqs: rest.faqs as never } satisfies TablesInsert<"products">;
+    const row = JSON.parse(JSON.stringify({ ...rest, specifications: rest.specifications, faqs: rest.faqs })) as TablesInsert<"products">;
     const q = id ? context.supabase.from("products").update(row).eq("id", id) : context.supabase.from("products").insert(row);
     const { error } = await q;
     if (error) throw new Error(error.message);

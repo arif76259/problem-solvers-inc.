@@ -21,8 +21,8 @@ export function LeadForm({
 }: {
   category: Category | string;
   allowCategory?: "b2b" | "all";
-  productId?: string;
-  subject?: string;
+  productId?: string | undefined;
+  subject?: string | undefined;
   compact?: boolean;
   source?: string;
 }) {
@@ -113,7 +113,7 @@ export function LeadForm({
   );
 }
 
-export function Field({ id, label, type = "text", error, required, defaultValue, placeholder, className }: { id: string; label: string; type?: string; error?: string; required?: boolean; defaultValue?: string; placeholder?: string; className?: string }) {
+export function Field({ id, label, type = "text", error, required, defaultValue, placeholder, className }: { id: string; label: string; type?: string; error?: string | undefined; required?: boolean; defaultValue?: string | undefined; placeholder?: string; className?: string }) {
   return (
     <div className={className}>
       <label className="field-label" htmlFor={`f-${id}`}>{label}</label>
