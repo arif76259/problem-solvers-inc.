@@ -106,7 +106,7 @@ export function PageHero({ eyebrow, title, description, children, tone = "defaul
   );
 }
 
-export function StageBadge({ stage, label, className }: { stage: string; label?: string | null; className?: string }) {
+export function StageBadge({ stage, label, className }: { stage: string; label?: string | null | undefined; className?: string }) {
   const tone =
     stage === "available" || stage === "early_access"
       ? "bg-secondary-container text-secondary-container-foreground"

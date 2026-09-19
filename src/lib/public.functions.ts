@@ -61,7 +61,7 @@ export const listReviews = createServerFn({ method: "GET" }).handler(async () =>
 });
 
 export const listFaqs = createServerFn({ method: "GET" })
-  .inputValidator((input: { category?: string } = {}) => input)
+  .inputValidator((input: { category?: string | undefined } = {}) => input)
   .handler(async ({ data }) => {
     let q = createPublicClient().from("faqs").select("*").order("sort_order");
     if (data.category) q = q.eq("category", data.category);

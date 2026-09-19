@@ -2,7 +2,7 @@ import { SITE } from "./site";
 
 type Script = { type: string; children: string };
 
-export function pageHead(opts: { title: string; description: string; path: string; type?: string; image?: string; jsonLd?: Record<string, unknown> | Record<string, unknown>[]; noindex?: boolean }) {
+export function pageHead(opts: { title: string; description: string; path: string; type?: string; image?: string; jsonLd?: Record<string, unknown> | Record<string, unknown>[] | undefined; noindex?: boolean }) {
   const title = opts.title.includes(SITE.name) ? opts.title : `${opts.title} — ${SITE.name}`;
   const meta: Record<string, string>[] = [
     { title },
