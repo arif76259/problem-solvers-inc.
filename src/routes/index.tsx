@@ -55,7 +55,7 @@ function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-surface grid-paper pt-36 pb-20 md:pt-44 md:pb-28">
         <div className="container-site grid gap-14 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7 animate-rise">
+          <div className="lg:col-span-7">
             <Eyebrow dot className="mb-6">Cohort 01 · {stats.remaining} of {stats.capacity} seats remaining</Eyebrow>
             <h1 className="text-display text-foreground max-w-2xl">{SITE.tagline}</h1>
             <p className="mt-7 max-w-xl text-body-lg text-muted-foreground">

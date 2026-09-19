@@ -95,7 +95,7 @@ export function PageHero({ eyebrow, title, description, children, tone = "defaul
   return (
     <section className={cn("relative overflow-hidden pt-36 pb-16 md:pt-44 md:pb-24", dark ? "bg-primary text-primary-foreground grid-paper-dark" : "bg-surface grid-paper")}>
       <div className="container-site relative">
-        <div className="max-w-3xl animate-rise">
+        <div className="max-w-3xl">
           {eyebrow && <Eyebrow className="mb-5" dot>{eyebrow}</Eyebrow>}
           <h1 className="text-display">{title}</h1>
           {description && <p className={cn("mt-6 text-body-lg max-w-2xl", dark ? "text-primary-foreground/75" : "text-muted-foreground")}>{description}</p>}

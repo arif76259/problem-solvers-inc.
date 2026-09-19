@@ -105,7 +105,7 @@ function EarlyCustomers() {
     <SiteLayout>
       <section className="relative overflow-hidden bg-primary text-primary-foreground grid-paper-dark pt-36 pb-20 md:pt-44 md:pb-28">
         <div className="container-site grid gap-12 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8 animate-rise">
+          <div className="lg:col-span-8">
             <Eyebrow dot className="mb-5">100 Early Customers · Cohort 01</Eyebrow>
             <h1 className="text-display">Become one of the 100 people who decide what we ship.</h1>
             <p className="mt-7 max-w-2xl text-body-lg text-primary-foreground/75">
