@@ -201,8 +201,8 @@ function Home() {
                 <blockquote className="text-lg leading-relaxed text-foreground">"{r.body}"</blockquote>
                 <figcaption className="mt-auto flex items-center justify-between text-sm">
                   <div>
-                    <p className="font-medium">{r.reviewer_name}</p>
-                    <p className="text-muted-foreground">{r.reviewer_role}</p>
+                    <p className="font-medium">{r.author_name}</p>
+                    <p className="text-muted-foreground">{r.author_location}{r.tested_days ? ` · ${r.tested_days}-day trial` : ""}</p>
                   </div>
                   <span className="text-label-xs text-outline">{r.products?.serial_ref} · {r.cohort_number ? `#${String(r.cohort_number).padStart(3, "0")}` : ""}</span>
                 </figcaption>
