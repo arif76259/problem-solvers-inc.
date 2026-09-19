@@ -102,7 +102,7 @@ export const getCampaignStats = createServerFn({ method: "GET" })
 
 // ---------- Public writes (validated, rate-limited, admin client after checks) ----------
 
-async function logEvent(name: string, props: Record<string, unknown>, ctx: { utm_source?: string; utm_medium?: string; utm_campaign?: string; session_id?: string; device?: string; path?: string }) {
+async function logEvent(name: string, props: Record<string, unknown>, ctx: { utm_source?: string | undefined; utm_medium?: string | undefined; utm_campaign?: string | undefined; session_id?: string | undefined; device?: string | undefined; path?: string | undefined }) {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   await supabaseAdmin.from("analytics_events").insert({
     event_name: name,
