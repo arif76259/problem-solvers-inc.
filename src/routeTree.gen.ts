@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as EarlyCustomersRouteImport } from './routes/early-customers'
 import { Route as HowWeBuildRouteImport } from './routes/how-we-build'
 import { Route as UpcomingProductsRouteImport } from './routes/upcoming-products'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EarlyCustomersRoute = EarlyCustomersRouteImport.update({
+  id: '/early-customers',
+  path: '/early-customers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowWeBuildRoute = HowWeBuildRouteImport.update({
@@ -50,6 +56,7 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/early-customers': typeof EarlyCustomersRoute
   '/how-we-build': typeof HowWeBuildRoute
   '/upcoming-products': typeof UpcomingProductsRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/early-customers': typeof EarlyCustomersRoute
   '/how-we-build': typeof HowWeBuildRoute
   '/upcoming-products': typeof UpcomingProductsRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/early-customers': typeof EarlyCustomersRoute
   '/how-we-build': typeof HowWeBuildRoute
   '/upcoming-products': typeof UpcomingProductsRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/early-customers'
     | '/how-we-build'
     | '/upcoming-products'
     | '/products/$slug'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/early-customers'
     | '/how-we-build'
     | '/upcoming-products'
     | '/products/$slug'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/early-customers'
     | '/how-we-build'
     | '/upcoming-products'
     | '/products/$slug'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  EarlyCustomersRoute: typeof EarlyCustomersRoute
   HowWeBuildRoute: typeof HowWeBuildRoute
   UpcomingProductsRoute: typeof UpcomingProductsRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/early-customers': {
+      id: '/early-customers'
+      path: '/early-customers'
+      fullPath: '/early-customers'
+      preLoaderRoute: typeof EarlyCustomersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-we-build': {
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  EarlyCustomersRoute: EarlyCustomersRoute,
   HowWeBuildRoute: HowWeBuildRoute,
   UpcomingProductsRoute: UpcomingProductsRoute,
   ProductsSlugRoute: ProductsSlugRoute,
